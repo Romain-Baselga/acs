@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@acs/feature-toggle": ["libs/feature-toggle/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

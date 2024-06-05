@@ -1,7 +1,8 @@
 {
   "version": 1,
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
   },
   "defaultProject": "app1",
   "schematics": {
@@ -139,6 +140,31 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/app1-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "feature-toggle": {
+      "projectType": "library",
+      "root": "libs/feature-toggle",
+      "sourceRoot": "libs/feature-toggle/src",
+      "prefix": "acs",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature-toggle/src/**/*.ts",
+              "libs/feature-toggle/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/feature-toggle/src/test.ts",
+            "tsConfig": "libs/feature-toggle/tsconfig.spec.json",
+            "karmaConfig": "libs/feature-toggle/karma.conf.js"
           }
         }
       }
